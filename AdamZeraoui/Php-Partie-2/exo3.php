@@ -5,4 +5,4 @@
 <?php
 
 $elan= "https://elan-formation.fr/accueil";
-echo "<a href='".$elan."'target='_blank'>Elan Formation</a>";
+echo "<a href='".$elan."'target='_blank'>Elan Formation</a>"; //target='_blank' sert à ouvrire le lien dans un nouvel onglet //

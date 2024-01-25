@@ -20,14 +20,14 @@ function afficherTableHTML($capitales){
                         <th>Capitales</th>
                     </tr>
                 </thead>
-                <tbody>";
+                <tbody>";               //On utilise le HTML pour mettre en forme le tableau//
     foreach($capitales as $pays =>$capitale){
         $result.="  <tr>
                         <td>".mb_strtoupper($pays)."</td>
                         <td>$capitale</td>
                     </tr>";
     }
-    $result.="</tbody></table>";
+    $result.="</tbody></table>"; //on ferme la balise après la boucle//
 
     return $result;
 }

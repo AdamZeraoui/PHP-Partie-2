@@ -13,7 +13,7 @@ function afficherInput($nomsInput) {
 
     foreach ($nomsInput as $input) {
         echo '<label for="' . $input . '">' . $input . ' :</label><br>';
-        echo '<input type="text" name="' . $input . '" id="' . $input . '" required><br>';
+        echo '<input type="text" name="' . $input . '" id="' . $input . '" required><br>';  //le input type='texte" permet de crée des champs où les personnes peuvent écrire.//
     }
 
 }

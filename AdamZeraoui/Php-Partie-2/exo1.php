@@ -18,6 +18,6 @@ echo convertirMajRouge($texte);
 
 function convertirMajRouge($texte){
     $result = mb_strtoupper($texte);
-    $result = "<p class='red'>$result</p>";
+    $result = "<p class='red'>$result</p>"; //On peut mettre du HTML dans les fonctions et les echos//
     return $result;
 }

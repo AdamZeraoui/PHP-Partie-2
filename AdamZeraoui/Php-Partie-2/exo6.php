@@ -8,10 +8,10 @@ alimenterListeDeroulante($elements);</code>
 <h2>Résultat</h2>
 <?php
 
-$elements = array("Monsieur","Madame","Mademoiselle");
+$elements = array("Monsieur","Madame","Mademoiselle"); 
 
 function alimenterListeDeroulante($elements){
-    echo '<select name="civil" id="civil-select">';
+    echo '<select name="civil" id="civil-select">';  //permet de d'afficher une liste//
                 
     foreach($elements as $civil){
         echo    '<label for="pet-select">Civilités</label><br>';
