@@ -9,18 +9,13 @@ repeterImage($url,4);</code>
 <?php
 
 $url= "http://my.mobirise.com/data/userpic/764.jpg";
-$n=4;
 
-function repeterImage($url,$n){
+
+function repeterImage($url,$nombre){
    
-        if($n == 4){
-            echo '<img class="image" src="'.$url.'" alt="chien"/>';
-        }
-        else {$n++;
-            echo '<img class="image" src="'.$url.'" alt="chien"/>';
-        }
-        while($n>4){
+    for($n= 0; $n < $nombre; $n++){     //ici le for est plus indiqué pour crée la boucle ici. J'ai eu du mal à trouver quel boucle été approprier.//
+        echo '<img src="'.$url.'"alt="chien">';
     }
-return $n;
+
 }
-repeterImage($url,$n);
+repeterImage($url,4);
