@@ -8,3 +8,45 @@ de validation (submit).</p>
 
 <?php
 
+function afficherInput($nomsInput) {
+
+    foreach ($nomsInput as $input) {
+        echo '<label for="' . $input . '">' . $input . ' :</label><br>';
+        echo '<input type="text" name="' . $input . '" id="' . $input . '" required><br>';
+    }
+
+}
+
+$nomsInput = array("Nom", "Prénom", "Adresse email","Ville");
+afficherInput($nomsInput);
+echo "<br>";
+
+$nomsRadio = ["Masculin", "Féminin", "Autre"];
+
+function afficherRadio($nomsRadio){
+
+    foreach($nomsRadio as $gender){
+        echo '<input type="radio" id="gender" nom="'.$gender.'" />';
+        echo '<label for="'.$gender.'">'.$gender.'</label><br>';
+    }
+}
+
+afficherRadio($nomsRadio);
+echo "<br>";
+
+
+$elements = array("Développeur Logiciel","Designer web","Intégrateur","Chef de projet"); 
+
+function alimenterListeDeroulante($elements){
+    echo '<select name="civil" id="civil-select">';
+                
+    foreach($elements as $civil){
+        echo    '<label for="pet-select">Civilités</label><br>';
+        echo    '<option value="'.$civil.'">'.$civil.'</option>';
+    }
+    echo '</select><br><br><input type="submit" value="Envoyer le formulaire" />';
+}
+
+alimenterListeDeroulante($elements);
+echo "<br>";
+
