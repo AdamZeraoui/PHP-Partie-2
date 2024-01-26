@@ -23,11 +23,11 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
     private int $nbPorte;
     private float $vitesseActuelle;
         //constructeur
-    public function __construct($marque, $modele, $nbPorte, $vitesseActuelle){
+    public function __construct($marque, $modele, $nbPorte, $vitesseInitiale){
         $this->marque = $marque;
         $this->modele = $modele;
         $this->nbPorte = $nbPorte;
-        $this->vitesseActuelle = $vitesseActuelle;
+        $this->vitesseActuelle = $vitesseInitiale;
     }
         //getters & setters
     public function getMarque(){
@@ -53,14 +53,21 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
         $this->nbPorte = $nbPorte;
     }
 
-    public function getVitesseActuelle(){
+    public function getVitesseActuelle(){ //peut être en surplus
         return $this->vitesseActuelle;
     }
     public function setVitesseActuelle($vitesseActuelle){
         $this->vitesseActuelle = $vitesseActuelle;
     }
         //méthode
-        
+    public function accelerer($vitesseAccelerer){
+        $this->vitesseActuelle += $vitesseAccelerer; // ici le += ajoute la valeur de $vitesseAccelerer  à la valeur de la vitesseActuelle
+        return $this->vitesseActuelle;
+    }    
+    public function ralentir($vitesseRalentir){
+        $this->vitesseActuelle -= $vitesseRalentir; //ici le -= soustrait la valeur de $vitesseRalentir à la valeur de la vitesseActuelle
+        return $this->vitesseActuelle;
+    }
     public function demarrer(){
         $vitesseVoiture = $this-> vitesseActuelle;
        return ($vitesseVoiture > 0) ? "démarée" : ""; 
