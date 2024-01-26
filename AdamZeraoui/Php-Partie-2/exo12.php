@@ -9,3 +9,11 @@ A l’aide d’une boucle, afficher les informations des variables contenues dan
 <?php
 
 $tableauValeurs=[true,"texte",10,25.369,array("valeur1","valeur2")];
+
+function trierTableau($tableauValeurs){
+    foreach($tableauValeurs as $valeur){
+        echo var_dump($valeur)."<br>";
+    }
+    
+}
+trierTableau($tableauValeurs);
