@@ -60,16 +60,22 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
         $this->vitesseActuelle = $vitesseActuelle;
     }
         //méthode
+        
     public function demarrer(){
         $vitesseVoiture = $this-> vitesseActuelle;
-        if($vitesseVoiture > 0){
-            echo "démarrée";
-        }
+       return ($vitesseVoiture > 0) ? "démarée" : ""; 
     }
     public function stopper(){
         $vitesseVoiture = $this-> vitesseActuelle;
-        if($vitesseVoiture == 0){
-            echo "stoppée";
-        }
+        return ($vitesseVoiture == 0) ? "stoppée" :"";
+    }
+    public function getInfo(){
+        $etat =($this->vitesseActuelle > 0) ? "démarée" : "stoppée";
+        return $this->getMarque().' '.$this->getModele().' '.$this->getNbPorte().' '.$this->getVitesseActuelle().' '.$etat;
     }
  }
+
+$v1= new Voiture("Peugeot","408","5","0");
+$v2= new Voiture("Citroën","C4","3","45.5");
+echo $v1->getInfo().'<br>'.$v2->getInfo();
+;
