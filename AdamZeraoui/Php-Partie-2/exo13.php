@@ -1,5 +1,5 @@
 <h1>Exercice 13</h1>
-<p>Créer une classe Voiture possédant les propriétés suivantes :<code> marque, modèle, nbPortes et
+<p>Créer une classe Voiture possédant les propriétés suivantes :<code> marque, modèle, nbPortess et
 vitesseActuelle </code> ainsi que les méthodes <code>demarrer( ), accelerer( )</code> et <code>stopper( )</code> en plus
 des accesseurs (<code>get</code>) et mutateurs (<code>set</code>) traditionnels. La vitesse initiale de chaque véhicule
 instancié est de 0. Une méthode personnalisée pourra afficher toutes les informations d’un
@@ -20,15 +20,18 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
         //attribut
     private string $marque;
     private string $modele;
-    private int $nbPorte;
+    private int $nbPortes;
     private float $vitesseActuelle;
+    private bool $isDemarree; //pour marche et arrêt /!\ a finir /!\
+
         //constructeur
-    public function __construct($marque, $modele, $nbPorte, $vitesseInitiale){
+    public function __construct($marque, $modele, $nbPortes, $vitesseInitiale){
         $this->marque = $marque;
         $this->modele = $modele;
-        $this->nbPorte = $nbPorte;
+        $this->nbPortes = $nbPortes;
         $this->vitesseActuelle = $vitesseInitiale;
     }
+
         //getters & setters
     public function getMarque(){
         return $this->marque;
@@ -46,21 +49,23 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
         $this->modele = $modele;
     }
 
-    public function getNbPorte(){
-        return $this->nbPorte;
+    public function getNbPortes(){
+        return $this->nbPortes;
     }
-    public function setNbPorte($nbPorte){
-        $this->nbPorte = $nbPorte;
+    public function setNbPortes($nbPortes){
+        $this->nbPortes = $nbPortes;
     }
 
-    public function getVitesseActuelle(){ //peut être en surplus
+    public function getVitesseActuelle(){
         return $this->vitesseActuelle;
     }
     public function setVitesseActuelle($vitesseActuelle){
         $this->vitesseActuelle = $vitesseActuelle;
     }
-        //méthode
-    public function accelerer($vitesseAccelerer){
+
+        //méthodes
+    
+    public function accelerer($vitesseAccelerer){ // pas sur de ma méthode
         $this->vitesseActuelle += $vitesseAccelerer; // ici le += ajoute la valeur de $vitesseAccelerer  à la valeur de la vitesseActuelle
         return $this->vitesseActuelle;
     }    
@@ -68,6 +73,8 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
         $this->vitesseActuelle -= $vitesseRalentir; //ici le -= soustrait la valeur de $vitesseRalentir à la valeur de la vitesseActuelle
         return $this->vitesseActuelle;
     }
+        //
+
     public function demarrer(){
         $vitesseVoiture = $this-> vitesseActuelle;
        return ($vitesseVoiture > 0) ? "démarée" : ""; 
@@ -78,7 +85,7 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
     }
     public function getInfo(){
         $etat =($this->vitesseActuelle > 0) ? "démarée" : "stoppée";
-        return $this->getMarque().' '.$this->getModele().' '.$this->getNbPorte().' '.$this->getVitesseActuelle().' '.$etat;
+        return $this->getMarque().' '.$this->getModele().' '.$this->getNbPortes().' '.$this->getVitesseActuelle().' '.$etat;
     }
  }
 
