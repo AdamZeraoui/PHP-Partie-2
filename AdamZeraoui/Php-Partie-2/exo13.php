@@ -16,25 +16,60 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
  <?php
 
  class Voiture{
-    private $marque;
-    private $modele;
-    private $nbPorte;
-    private $vitesseActuelle;
 
+        //attribut
+    private string $marque;
+    private string $modele;
+    private int $nbPorte;
+    private float $vitesseActuelle;
+        //constructeur
     public function __construct($marque, $modele, $nbPorte, $vitesseActuelle){
         $this->marque = $marque;
         $this->modele = $modele;
         $this->nbPorte = $nbPorte;
         $this->vitesseActuelle = $vitesseActuelle;
     }
-
+        //getters & setters
     public function getMarque(){
         return $this->marque;
     }
 
-    public fuctio
+    public function setMarque($marque){
+        $this->marque = $marque;
+    }
+    
+    public function getModele(){
+        return $this->modele;
+    }
 
+    public function setModele($modele){
+        $this->modele = $modele;
+    }
 
+    public function getNbPorte(){
+        return $this->nbPorte;
+    }
+    public function setNbPorte($nbPorte){
+        $this->nbPorte = $nbPorte;
+    }
 
-
+    public function getVitesseActuelle(){
+        return $this->vitesseActuelle;
+    }
+    public function setVitesseActuelle($vitesseActuelle){
+        $this->vitesseActuelle = $vitesseActuelle;
+    }
+        //méthode
+    public function demarrer(){
+        $vitesseVoiture = $this-> vitesseActuelle;
+        if($vitesseVoiture > 0){
+            echo "démarrée";
+        }
+    }
+    public function stopper(){
+        $vitesseVoiture = $this-> vitesseActuelle;
+        if($vitesseVoiture == 0){
+            echo "stoppée";
+        }
+    }
  }
