@@ -92,4 +92,3 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
 $v1= new Voiture("Peugeot","408","5","0");
 $v2= new Voiture("Citroën","C4","3","45.5");
 echo $v1->getInfo().'<br>'.$v2->getInfo();
-;
