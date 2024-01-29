@@ -8,45 +8,46 @@ de validation (submit).</p>
 
 <?php
 
+
 function afficherInput($nomsInput) {
-
+    $result1="<from>";
     foreach ($nomsInput as $input) {
-        echo '<label for="' . $input . '">' . $input . ' :</label><br>';
-        echo '<input type="text" name="' . $input . '" id="' . $input . '" required><br>';
+        $result1 .= "<label for='$input'>$input :</label><br>";
+        $result1 .= "<input type='text' name='$input' id='$input' required><br>";
     }
-
+    $result1.="</from>";
+    return $result1;
 }
 
 $nomsInput = array("Nom", "Prénom", "Adresse email","Ville");
-afficherInput($nomsInput);
-echo "<br>";
+
 
 $nomsRadio = ["Masculin", "Féminin", "Autre"];
 
 function afficherRadio($nomsRadio){
-
+    $result2="<form>";
     foreach($nomsRadio as $gender){
-        echo '<input type="radio" id="gender" nom="'.$gender.'" />';
-        echo '<label for="'.$gender.'">'.$gender.'</label><br>';
+        $result2.= "<input type='radio' id='$gender' name='gender'/>";
+        $result2.= "<label for='$gender'>$gender</label><br>";
     }
+    $result2.="</form>";
+    return $result2;
 }
-
-afficherRadio($nomsRadio);
-echo "<br>";
 
 
 $elements = array("Développeur Logiciel","Designer web","Intégrateur","Chef de projet"); 
 
 function alimenterListeDeroulante($elements){
-    echo '<select name="civil" id="civil-select">';
+    $result= "<select name='civil' id='civil-select'>";
                 
     foreach($elements as $civil){
-        echo    '<label for="pet-select">Civilités</label><br>';
-        echo    '<option value="'.$civil.'">'.$civil.'</option>';
+        $result.= "<label for='pet-select'>Civilités</label><br>";
+        $result.= "<option value='$civil'>$civil</option>";
     }
-    echo '</select><br><br><input type="submit" value="Envoyer le formulaire" />';
+    $result.= "</select><br><br><input type='submit' value='Envoyer le formulaire'/>";
+    return $result;
 }
-
-alimenterListeDeroulante($elements);
-echo "<br>";
+echo afficherInput($nomsInput)."<br>";
+echo afficherRadio($nomsRadio)."<br>";
+echo alimenterListeDeroulante($elements);
 

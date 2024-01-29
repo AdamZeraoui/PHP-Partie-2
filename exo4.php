@@ -32,11 +32,11 @@ function afficherTableHTML($capitales){
                 </thead>
                 <tbody>";
     foreach($capitales as $pays =>$capitale){
-        $liens ="https://fr.wikipedia.org/wiki/".$capitale; //On rajoute les liens dans le tableau, suivi de la variable capitale pour compléter le lien//
+        $lien ="https://fr.wikipedia.org/wiki/$capitale"; //On rajoute les liens dans le tableau, suivi de la variable capitale pour compléter le lien//
         $result.="  <tr>
                         <td>".mb_strtoupper($pays)."</td>
                         <td>$capitale</td>
-                        <td><a href='". $liens."'target='_blank'>Lien</a> 
+                        <td><a href='$lien'target='_blank'>Lien</a> 
                     </tr>";
     }
     $result.="</tbody></table>";

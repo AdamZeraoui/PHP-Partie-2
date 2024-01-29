@@ -11,13 +11,14 @@ alimenterListeDeroulante($elements);</code>
 $elements = array("Monsieur","Madame","Mademoiselle"); 
 
 function alimenterListeDeroulante($elements){
-    echo '<select name="civil" id="civil-select">';  //permet de d'afficher une liste//
+    $result= "<select name='civil' id='civil-select'>";  //permet de d'afficher une liste//
                 
     foreach($elements as $civil){
-        echo    '<label for="pet-select">Civilités</label><br>';
-        echo    '<option value="'.$civil.'">'.$civil.'</option>';
+        $result.="<label for='pet-select'>Civilités</label><br>";
+        $result.="<option value='$civil'>".$civil."</option>";
     }
-    echo '</select>';
+    $result.= "</select>";
+    return $result;
 }
 
-alimenterListeDeroulante($elements);
+echo alimenterListeDeroulante($elements);

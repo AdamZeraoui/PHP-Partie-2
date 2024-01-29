@@ -25,11 +25,12 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
     private bool $isDemarree; //pour marche et arrêt /!\ a finir /!\
 
         //constructeur
-    public function __construct($marque, $modele, $nbPortes, $vitesseInitiale){
+    public function __construct($marque, $modele, $nbPortes){
         $this->marque = $marque;
         $this->modele = $modele;
         $this->nbPortes = $nbPortes;
-        $this->vitesseActuelle = $vitesseInitiale;
+        $this->vitesseActuelle = 0;
+        $this->isDemarree = false;
     }
 
         //getters & setters
@@ -66,8 +67,13 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
         //méthodes
     
     public function accelerer($vitesseAccelerer){ // pas sur de ma méthode
-        $this->vitesseActuelle += $vitesseAccelerer; // ici le += ajoute la valeur de $vitesseAccelerer  à la valeur de la vitesseActuelle
-        return $this->vitesseActuelle;
+        if($this->isDemarree) {
+            $this->vitesseActuelle += $vitesseAccelerer; // ici le += ajoute la valeur de $vitesseAccelerer  à la valeur de la vitesseActuelle
+            return $this->vitesseActuelle;
+        } else {
+            echo "";
+        }
+    
     }    
     public function ralentir($vitesseRalentir){
         $this->vitesseActuelle -= $vitesseRalentir; //ici le -= soustrait la valeur de $vitesseRalentir à la valeur de la vitesseActuelle
@@ -83,12 +89,13 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
         $vitesseVoiture = $this-> vitesseActuelle;
         return ($vitesseVoiture == 0) ? "stoppée" :"";
     }
+    
     public function getInfo(){
-        $etat =($this->vitesseActuelle > 0) ? "démarée" : "stoppée";
-        return $this->getMarque().' '.$this->getModele().' '.$this->getNbPortes().' '.$this->getVitesseActuelle().' '.$etat;
+        //$etat =($this->vitesseActuelle > 0) ? "démarée" : "stoppée";
+        return $this->getMarque().' '.$this->getModele().' '.$this->getNbPortes().' '.$this->getVitesseActuelle();//.' '.;$etat à remplacer par le boolean//
     }
  }
 
-$v1= new Voiture("Peugeot","408","5","0");
-$v2= new Voiture("Citroën","C4","3","45.5");
+$v1= new Voiture("Peugeot","408",5);
+$v2= new Voiture("Citroën","C4",3);
 echo $v1->getInfo().'<br>'.$v2->getInfo();

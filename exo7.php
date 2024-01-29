@@ -9,14 +9,18 @@ genererCheckbox($elements);
 
 <?php
 
-$elements = ["Choix 1"=>"","Choix 2"=>"checked","Choix 3"=>""];
+$elements = ["Choix 1"=>"","Choix 2"=>"checked","Choix 3"=>"checked"];
 
 function genererCheckbox($elements){
-
+    $result = "<form>";
     foreach($elements as $name => $isChecked){
-        echo '<input type="checkbox" id="scales" name="'.$name.'" '.$isChecked.'/>'; //checkbox permet de crée des cas à cocher //
-        echo '<label for="'.$name.'">'.$name.'</label><br>';
+  
+        $result.="<input type='checkbox' id='$name' name='$name' $isChecked/>"; //checkbox permet de crée des cas à cocher //
+        $result.="<label for='$name'>$name</label><br>";
+
     }
+    $result.="</form>";
+    return $result;
 }
 
-genererCheckbox($elements);
+echo genererCheckbox($elements);

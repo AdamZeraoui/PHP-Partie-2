@@ -10,14 +10,16 @@ afficherInput($nomsInput);</code></p>
 <?php
 
 function afficherInput($nomsInput) {
-
+    $result = "<form >";
     foreach ($nomsInput as $input) {
-        echo '<label for="' . $input . '">' . $input . ' :</label><br>';
-        echo '<input type="text" name="' . $input . '" id="' . $input . '" required><br>';  //le input type='texte" permet de crée des champs où les personnes peuvent écrire.//
+        $result .= "<label for='$input'>$input :</label><br>";
+        $result .= "<input type='text' name='$input' id='$input' required><br>";  //le input type='texte" permet de crée des champs où les personnes peuvent écrire.//
     }
+    $result .= "</form>";
+    return $result;
 
 }
 
 $nomsInput = array("Nom", "Prénom", "Ville");
-afficherInput($nomsInput);
+echo afficherInput($nomsInput);
 
