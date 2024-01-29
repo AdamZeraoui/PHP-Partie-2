@@ -66,13 +66,10 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
 
         //méthodes
     
-    public function accelerer($vitesseAccelerer){ // pas sur de ma méthode
-        if($this->isDemarree) {
+    public function accelerer($vitesseAccelerer){
+
             $this->vitesseActuelle += $vitesseAccelerer; // ici le += ajoute la valeur de $vitesseAccelerer  à la valeur de la vitesseActuelle
             return $this->vitesseActuelle;
-        } else {
-            echo "";
-        }
     
     }    
     public function ralentir($vitesseRalentir){
@@ -82,8 +79,10 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
         //
 
     public function demarrer(){
-        $vitesseVoiture = $this-> vitesseActuelle;
-       return ($vitesseVoiture > 0) ? "démarée" : ""; 
+        
+            $vitesseVoiture = $this-> vitesseActuelle;
+            return ($vitesseVoiture > 0) ? "démarée" : ""; 
+
     }
     public function stopper(){
         $vitesseVoiture = $this-> vitesseActuelle;
@@ -99,3 +98,4 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
 $v1= new Voiture("Peugeot","408",5);
 $v2= new Voiture("Citroën","C4",3);
 echo $v1->getInfo().'<br>'.$v2->getInfo();
+
