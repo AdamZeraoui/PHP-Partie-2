@@ -22,14 +22,13 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
     private string $modele;
     private int $nbPortes;
     private float $vitesseActuelle;
-    private bool $isDemarree; //pour marche et arrêt /!\ a finir /!\
+    private bool $isDemarree; 
 
-        //constructeur
     public function __construct($marque, $modele, $nbPortes){
         $this->marque = $marque;
         $this->modele = $modele;
         $this->nbPortes = $nbPortes;
-        $this->vitesseActuelle = 0;
+        $this->vitesseActuelle =0;
         $this->isDemarree = false;
     }
 
@@ -67,35 +66,45 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
         //méthodes
     
     public function accelerer($vitesseAccelerer){
-
-            $this->vitesseActuelle += $vitesseAccelerer; // ici le += ajoute la valeur de $vitesseAccelerer  à la valeur de la vitesseActuelle
-            return $this->vitesseActuelle;
+        if($this->isDemarree){
+            $this->vitesseActuelle += $vitesseAccelerer;
+            return  "La voiture accélère de ".$this->vitesseActuelle." km/h.";
+        }return "La voiture veux accélèrer de ".$vitesseAccelerer." km/h.<br> Pour accélerer, il faut démarrer le véhicule ". $this->marque ." ".$this->modele." !";
     
     }    
     public function ralentir($vitesseRalentir){
-        $this->vitesseActuelle -= $vitesseRalentir; //ici le -= soustrait la valeur de $vitesseRalentir à la valeur de la vitesseActuelle
+        $this->vitesseActuelle -= $vitesseRalentir;
         return $this->vitesseActuelle;
     }
-        //
 
     public function demarrer(){
-        
-            $vitesseVoiture = $this-> vitesseActuelle;
-            return ($vitesseVoiture > 0) ? "démarée" : ""; 
-
+        if(!$this->isDemarree){
+            $this->isDemarree = true;
+            return "Le véhicule ". $this->marque ." ".$this->modele." est demarré.";   
+        }return "Vous devez Demarrer !!";
     }
     public function stopper(){
-        $vitesseVoiture = $this-> vitesseActuelle;
-        return ($vitesseVoiture == 0) ? "stoppée" :"";
+        if($this->isDemarree){
+            $this->isDemarree = false;
+            return "Le véhicule ". $this->marque ." ".$this->modele." est stoppé.";
+        }return "<br> ";
     }
-    
-    public function getInfo(){
-        //$etat =($this->vitesseActuelle > 0) ? "démarée" : "stoppée";
-        return $this->getMarque().' '.$this->getModele().' '.$this->getNbPortes().' '.$this->getVitesseActuelle();//.' '.;$etat à remplacer par le boolean//
+
+
+    public function __toString()
+    {
+        return "La vitesse du véhicule ".$this->marque ." ".$this->modele." est de ". $this->vitesseActuelle ." km/h.";
+    }
+
+    public function getInfoVoiture(){
+        return "<br>******************<br>Nom et modèle du véhicule : ". $this->getMarque()." ".$this->getModele()."<br>Nombre de porte : ".$this->getNbPortes().'<br>'.$this->demarrer().'<br>Sa vitesse actuelle est de : '.$this->getVitesseActuelle(). ' km/h.';
     }
  }
 
 $v1= new Voiture("Peugeot","408",5);
 $v2= new Voiture("Citroën","C4",3);
-echo $v1->getInfo().'<br>'.$v2->getInfo();
 
+echo $v1->demarrer()."<br>"; $v1->accelerer(50).'<br>';
+echo $v2->demarrer().'<br>'. $v2->stopper().'<br>'.$v2->accelerer(20);
+echo "<br>".$v1."<br>".$v2;
+echo "<br><br><br>Info véhicule 1 ". $v1->getInfoVoiture().'<br><br><br>Info véhicule 2 '. $v2->getInfoVoiture().'<br>';
