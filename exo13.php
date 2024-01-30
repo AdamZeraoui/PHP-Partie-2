@@ -72,7 +72,7 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
         }return "La voiture veux accélèrer de ".$vitesseAccelerer." km/h.<br> Pour accélerer, il faut démarrer le véhicule ". $this->marque ." ".$this->modele." !";
     
     }    
-    public function ralentir($vitesseRalentir){
+    public function ralentir($vitesseRalentir){ //le ralentir est à finir
         $this->vitesseActuelle -= $vitesseRalentir;
         return $this->vitesseActuelle;
     }
