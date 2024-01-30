@@ -9,6 +9,14 @@
 $emailElan = "elan@elan-formation.fr";
 $emailInvalide = "contact@elan";
 
-if (filter_var($emailElan, FILTER_VALIDATE_EMAIL)){
-    echo
+function verifier($email){
+
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+        echo "L'adresse « $email » est une adresse e-mail valide.<br>";
+    } else {
+        echo "L'adresse « $email » est une adresse e-mail invalide.<br>";
+    }
 }
+
+verifier($emailElan);
+verifier($emailInvalide);
