@@ -17,12 +17,57 @@ class Voiture{
     private string $marque;
     private string $modele;
 
-    public function __constuct($marque, $modele){
+    public function __construct($marque, $modele){
         $this->marque = $marque;
         $this->modele = $modele;
     }
-    
 
+    public function getMarque(){
+        return $this->marque;
+    }
 
+    public function setMarque($marque){
+        $this->marque=$marque;
+    }
+
+    public function getModele(){
+        return $this->modele;
+    }
+
+    public function setModele($modele){
+        $this->modele=$modele;
+    }
+
+    public function getInfo(){
+        return  $this->getMarque()." ".$this-> getModele();
+    }
 
 }
+
+class VoitureElec extends Voiture{
+    
+    private int $autonomie;
+
+    public function __construct($marque, $modele, $autonomie){
+        parent::__construct($marque, $modele);
+        $this->autonomie = $autonomie;
+    }
+
+    public function getCharger(){
+        return $this->autonomie;
+    }
+
+    public function setCharger($autonomie){
+        $this->autonomie = $autonomie;
+    }
+
+    public function getInfo(){
+        return parent::getInfo()." ".$this->getCharger();
+    }
+
+}
+
+$v1 = new Voiture("Peugeot","408");
+$ve1 = new VoitureElec("BMW","I3",100);
+echo $v1->getInfo()."<br>";
+echo $ve1->getinfo()."<br>";
