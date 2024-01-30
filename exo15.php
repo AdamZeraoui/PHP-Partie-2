@@ -9,9 +9,9 @@
 $emailElan = "elan@elan-formation.fr";
 $emailInvalide = "contact@elan";
 
-function verifier($email){
+function verifier($email){ //j'ai préféré faire une fonction, plutôt que de faire une répétition
 
-    if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)){ //filter_var() permet de filtrer une $variable avec un FILTRE_SPECIFIQUE
         echo "L'adresse « $email » est une adresse e-mail valide.<br>";
     } else {
         echo "L'adresse « $email » est une adresse e-mail invalide.<br>";
