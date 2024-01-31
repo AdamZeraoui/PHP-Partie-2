@@ -66,15 +66,18 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
         //méthodes
     
     public function accelerer($vitesseAccelerer){
-        if($this->isDemarree){
+        if($this->isDemarree){ //on utilise le boolean pour autoriser ou non l'accélération.
             $this->vitesseActuelle += $vitesseAccelerer;
             return  "La voiture accélère de ".$this->vitesseActuelle." km/h.";
         }return "La voiture veux accélèrer de ".$vitesseAccelerer." km/h.<br> Pour accélerer, il faut démarrer le véhicule ". $this->marque ." ".$this->modele." !";
     
     }    
     public function ralentir($vitesseRalentir){ //le ralentir est à finir
-        $this->vitesseActuelle -= $vitesseRalentir;
-        return $this->vitesseActuelle;
+        if($this->isDemarree && $vitesseRalentir>0 && $vitesseRalentir<=$this->vitesseActuelle){
+            $this->vitesseActuelle -= $vitesseRalentir;
+            return "La voiture ralenti de ".$vitesseRalentir." km/h";
+        }return "La voiture veux ralentir de ".$this->vitesseActuelle."km/h";
+
     }
 
     public function demarrer(){
@@ -104,7 +107,7 @@ tests pour vérifier la cohérence de la classe Voiture. <br>
 $v1= new Voiture("Peugeot","408",5);
 $v2= new Voiture("Citroën","C4",3);
 
-echo $v1->demarrer()."<br>"; $v1->accelerer(50).'<br>';
+echo $v1->demarrer()."<br>"; $v1->accelerer(50).'<br>'; $v1->ralentir(60).'<br>';
 echo $v2->demarrer().'<br>'. $v2->stopper().'<br>'.$v2->accelerer(20);
 echo "<br>".$v1."<br>".$v2;
 echo "<br><br><br>Info véhicule 1 ". $v1->getInfoVoiture().'<br><br><br>Info véhicule 2 '. $v2->getInfoVoiture().'<br>';
